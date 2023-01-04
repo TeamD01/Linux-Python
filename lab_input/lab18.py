@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-'''This is Lab 18 print() and input() examples and run
+'''This is Lab 18 Challenge: shebang, input(), print(), concatenate, and variables.
 '''
 def main():
     user_name_in = input("Enter your name: ")
