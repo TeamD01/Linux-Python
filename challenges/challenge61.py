@@ -10,5 +10,5 @@ def main():
         for i in range(verses, 0, -1):
             print(str(i) + string1 + "\n" + str(i) + string1 + str(i) + string2 + string3)
     else:
-        print("invalid input ~~~ bye!!!")
+        print("Invalid input ~~~ Step away from the keyboard ~~~ bye!!!")
 main()
