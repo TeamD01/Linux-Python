@@ -1,0 +1,75 @@
+Using VSCode
+While vim is a great place to start learning how to code within a terminal, many programmers prefer to work in VSCode due to its easy-to-navigate integration with git and GitHub, debugging features, graphical user interface (GUI), and more. Plus, once you are comfortable with the keyboard commands in vim, VSCode actually has an option to integrate those key bindings from vim, so there's no additional shortcuts you need to learn!
+
+VSCode User interface documentation
+
+Lab Objective:
+The objective of this lab is to learn how to enter and navigate VSCode within your lab environment, configure VSCode to use vim shortcuts, and create a text file similar to the previous lab in vim. You will also be introduced to the concepts of a GitHub repository and writing a python script in VSCode, but we will revisit those topics more in-depth in later labs.
+
+Procedure:
+Enter VSCode by clicking on the icon that looks like three sheets of paper located at the top right of your tmux terminal.
+
+In the drop-down menu, select the option code.
+
+You are now in VSCode! That was easy, right? You'll be greeted by a "Getting Started" tab which we absolutely don't need. Go ahead and click the X to close it.
+
+VSCode Menu
+
+Let's tour some of the VSCode interface. Click on the three horizontal lines. This is the application menu where you can create and open new files, and set up your virtual workspace to your liking. For now, just look through the various tools in this menu.
+
+VSCode Menu
+
+Next, click on the icon below with the two sheets of paper. This is the explorer which features a more concise "Open Folder" option than the application menu, as well as an option to "Clone Repository". This is a git/GitHub term, which allows you to either work individually or collaborate on projects. More on that later.
+
+VSCode Menu
+
+Below the explorer is a magnifying glass icon which, you guessed it, is a search tool. Here you can easily find and replace words or phrases in a given file.
+
+VSCode Menu
+
+Next is a little roadmap-looking icon. This is your source control feature, where you will be able to see changes and make GitHub commits. Again, don't worry about these terms yet.
+
+VSCode Menu
+
+Second to last is the highly useful run and debug, which looks like a play button and some kind of insect (get it?). This feature allows you to view and fix any issues that may exist within your code.
+
+VSCode Menu
+
+Finally, the building-blocks icon is where you can install extensions to your VSCode workspace.
+
+VSCode Menu
+
+In VSCode, press the ≡ button in the upper left. Select File > New File.
+
+VSCode Menu
+
+Press ctrl s, or go back to the ≡ button in the upper left. Select File > Save. When prompted, save your file as /home/student/zork.py.
+
+The .py extension is important! VSCode will recognize your file as a Python script and will format it appropriately.
+
+VSCode Menu
+
+Copy the following by clicking the clipboard icon in the upper right of the text field below, then paste it into your file:
+
+print("""West of House
+You are standing in an open field west of a white house, with a boarded front door.
+There is a small mailbox here.""")
+In the upper right of your VSCode window, click the play ▶️ button. This will open a terminal window at the bottom of your screen where your script will be called and executed!
+
+VSCode Menu
+
+VSCode Menu
+
+You can also use the terminal as a normal Linux command line. Display that code you just wrote:
+
+student@bchd:~$ cat ~/zork.py
+
+You can also call your Python modules from the command line as well. Type in the following:
+
+student@bchd:~$ python3 ~/zork.py
+
+No need to keep this file. In the "Explorer" menu on the left side of your VSCode screen, right-click zork.py and select "Delete Permanently".
+
+VSCode Menu
+
+There is a whole lot more functionality to explore within VSCode, but those are the basics to get you started. Feel free to explore!

@@ -1,0 +1,98 @@
+Understanding Linux File System Layout
+Lab Objective
+After installing a Linux machine, you will get some default directories in the operating system. This structure is known as POSIX, pronounced with an ahh sound and not an ohh sound (pahz-icks). It defines a standard operating system interface and environment, common utility programs, and a command interpreter (better known as a "shell". Specifically for this lab, we'll focus on the filesystem structure of POSIX. Regardless of the operating system, if they implement POSIX then you are not going to be searching far for a filesystem / directory structure because they are going to be the same.
+
+POSIX File System
+
+Procedure
+There are only a few activities in the lab, just the requirement for you to understand the structure here and that it is repetitive across multiple operating systems. You must know the names and purpose of the most important directories. Here is review of the most important directories.
+
+/
+To start with, there is root. That's the start of your entire Linux file system. It's the root directory, and within the root directory, you should not create any files. Most likely the systems administrators and engineers would have locked down permissions to prevent such dangerous behavior. You mess with the root filesystem, you could hose up your entire server.
+
+/boot
+Then there is /boot. /boot is used for booting your system. It contains the kernel and the initramfs; everything that's essential to get your system up and running.
+
+/bin & /sbin
+Then there is /bin, which is for binaries. Binaries are accessible by normal users, and there is /sbin as well, which is for system binaries. These are the program files that the root or privileged user will use to administer the system.
+
+/lib & /lib64 -> /bin & /sbin
+Now, the binaries and system binaries work with libraries as well, and these libraries are in /lib as well as in /lib64. These are the additional library files that are needed to run the binaries in /bin and /sbin. It contains kernel modules and the C code library needed to boot the system and run commands in the root filesystem - the binaries just mentioned above.
+
+/usr
+The user directory is like a program file on Windows. It contains most program files and is the larged share of data on an operating system. A very important directory.
+
+/home
+/home is for use for home directories. So if you create a user, it will get it's home directory by default in the /home directory. Having a /home/$USER directory or a (~/) allows for individual users to have their own environment to work in. Writing, deleting, moving, installing programs is all possible when setup as a user within here.
+
+/proc
+/proc is a very interesting directory, which allows you to show information that was written by the kernel. It is basically real life information about what your operating system is doing. This includes but is not limited to memory, CPU, and available filesystems. Being a live filesystem (one that exists in memory), it does not exist on disk and is instead created by the kernel to show system information like mentioned above.
+
+/tmp
+/tmp is a directory that contains files that are highly volatile for being written to disk. Like the name says, these are files required temporarily. Programs use /tmp to lock files and directories for temporary storage of data. Many currently running programs rely on the files in /tmp so removing them can be very dangerous to those processes. On most systems, reboots will clear out the files left in /tmp. Don't be surprised if some of those files come back with the same name however. The OS may need them in order to run.
+
+/var
+/var is a directory that is used by different servers to create log files, for example, in /var/log. There is also /var/www, which is used by the web server as its default document root. It contains the data that is changed within a running system. /var also is a filesystem that is not shared across servers.
+
+Now, these are the most important directories / filesystems that you will typically find on the Linux system. There are more, but they are not as important, and we will encounter some of them later in the course.
+
+Change directory to the root directory.
+
+student@bchd:~$ cd /
+
+Install the application tree if you do not have it already. It is okay to run this command again if you are unsure. You won't break anything.
+
+student@bchd:/$ sudo apt install tree -y
+
+List the tree structure, one level deep. This will show you what your root filesystem looks like.
+
+student@bchd:/$ tree -L 1
+
+.
+├── bin -> usr/bin
+├── boot
+├── dev
+├── etc
+├── home
+├── lib -> usr/lib
+├── lib32 -> usr/lib32
+├── lib64 -> usr/lib64
+├── libx32 -> usr/libx32
+├── lost+found
+├── media
+├── mnt
+├── opt
+├── proc
+├── root
+├── run
+├── sbin -> usr/sbin
+├── snap
+├── srv
+├── sys
+├── tmp
+├── usr
+└── var
+
+23 directories, 0 files
+Taking a look at the Linux File System Hierarchy
+The linux file hierarchy is found in section seven of the manual pages and it describes the purpose of the directories. Understand file system differences.
+
+student@bchd:/$ man hier
+
+
+Here we have a short list of the file systems: XFS, Ext4, Btrfs, vfat, GFS2, and Gluster.
+
+#### XFS
+XFS is the default file system in RHEL but you will see it in other recent Linux distributions as well. It's based on a mature file system that was created with scalability in mind by SGI, a company that created super computers. It also has a healthy open source community behind it. XFS is based on a B-tree database, which means that file system metadata is stored in a small database. This database makes sure that the file system is very efficient. It has some excellent tuning options for different workloads.
+
+#### Ext4
+The Ext family of file systems consists of Ext2, Ext3, and Ext4. The first was Ext2 which was released in 1993. It uses H-tree indexing, which is a simple index that helps your operating system find files. Because of this indexing, the Ext4 file system is not as performant and scalable as XFS. Ext4 was the default in RHEL 6 and still available in RHEL 7, but it's no longer used as the default anymore. However, if you need backward compatibility then it's still a good choice. Keep in mind with Ext4, that the main developer of Ext4 has decided it's time to start doing something else which is why Red Hat has changed the default file system in RHEL 7 and most recent versions.
+
+#### Btrfs
+Btrfs is the future promise. This is a Copy-on-Write file system that makes journaling unnecessary as well as undelete actions. Copy-on-Write means that while creating new blocks you are keeping the old blocks, so the new blocks are always written somewhere else. This means you can easily revert to the previous version of the file system. And as a result, Btrfs has features like snapshots that are inherent to the file system. You can easily freeze the status of the file system in time by creating a snapshot. It also has some other nice features. Many of them are oriented around subvolumes. A subvolume is like a mount, but a mount that doesn't exist for an entire file system but for a directory and the result is that you can use different properties on different directories. And there we are talking about properties that previously required you to create an entire partition and mount it as an entire device. Btrfs is available as a tech preview release since RHEL 7.1. Feel free to play with it. You will see the installation routine found there is already an option to use Btrfs while creating file systems.
+
+#### vfat
+Vfat is for compatibility with other operating systems. This file system is useful if you need to format a USB thumb drive to exchange data between Linux, Windows, and a MAC. Vfat is the only file system that's compatible between all of them. You would use it for removable media. It's not needed on disk.
+We'll be looking at the Ext4 filesystem in further detail later on.
+
+Press q to quit.

@@ -1,0 +1,48 @@
+Tmux
+The program known as tmux is a very powerful tool for boosting the efficiency of using the command line. It allows you to multiplex the terminal, thus enabling you to effectively multiply the speed of your command line usage.
+
+Learning Objective(s):
+Become familiar using tmux to massively increase your CLI efficiency
+Procedure - Tmux
+This lab is about learning to use tmux. What is it? Watch this video, read through the guide, and complete this challenge.
+
+
+Tmux Tutorial
+
+Watch it!
+
+You are already in a tmux session. If you weren't, you could apt-install tmux, then type the command tmux to get started. But the first thing we need to practice is a two-step process to enter into the command mode of tmux. Follow these steps:
+
+Hold the Ctrl key
+Tap the B key
+Take your hands off the keyboard (alias HOK)
+Practice doing this seven times.
+
+Now you are ready to learn some of the most essential tmux commands.
+
+For each of the following characters, enter the tmux command sequence (Ctrl B, HOK), then push the character. Note, not all of the characters are single-button presses. For example: % can be done by hitting the keyboard buttons Shift and 5.
+
+% - Vertical Split
+" - Horizontal Split
+z - Zoom/Unzoom
+← - Move cursor leftwards one pane
+↑ - Move cursor upwards one pane
+→ - Move cursor rightwards one pane
+↓ - Move cursor downwards one pane
+[ - Scrollback (type q to exit)
+? - Show the list of available tmux commands (type q to exit)
+To exit out of a tmux pane, you can simply type the word exit, logout, or hit the key sequence Ctrl D.
+
+Challenge: Make your screen look like this:
+
+tmux example
+
+If you are struggling to do this, please re-watch the video or ask your instructor for help.
+
+After completing this challenge, eliminate all but one of the panes before moving on to the next lab.
+
+For more tmux commands, check out our tmux cheat sheet:
+
+
+
+Get all of Alta3's Cheat Sheets here! https://alta3.com/posters

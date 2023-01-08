@@ -1,0 +1,13 @@
+CHALLENGE- Finding Files
+
+It's a deep, dense world of files and directories in Linux, and you'll definitely need to know how to find your way!
+
+Paste the following command into your terminal:
+
+student@bchd:~$ cd && wget https://raw.githubusercontent.com/csfeeser/Linux-Exercises/main/findingfiles.py -qO findingfiles.py && sudo python3 findingfiles.py
+
+Mischief managed! With your new find command, accomplish the following:
+
+Find where a file named SLAPPY is located.
+Find and remove all files that end in .horgledorgle
+Don’t try to hunt them all down individually-- use Google to find a solution! Here's a helpful site that breaks down all the ways find can be used!

@@ -1,0 +1,96 @@
+Revision Control with Git and GitHub
+In this lab, we're going to explore SCM, or Software Control Management platforms. Git is the de-facto tool for tracking and version controlling your work. Git is a tool that we run on our local machine. GitHub is an HTTPS browser-friendly platform that syncs with git, and makes your code available to the world. This is a good thing.
+
+In this lab, you'll make a GitHub account. This is free and will allow you to save the code you develop this week.
+
+
+<
+
+
+Section 1 - Create a GitHub account
+In your browser, open a new tab and navigate to https://github.com
+
+Click on Sign-up on the landing page.
+
+Enter the following information.
+
+Email Address - Use an email address you check often.
+Password - Always make passwords unique and ultimately change them often.
+Username - This handle will be shared with career professionals.
+STOP: before you go any farther, record the above information. You will need it later.
+
+Now click on the Create account button at the bottom of the screen.
+
+At the bottom of the screen, click the green Continue button.
+
+Answer the questions as best you can to help the GitHub metrics, and then click Submit at the bottom of the screen.
+
+You'll need to verify your email address. Check the email address you used to sign up, and click on the link or button they sent to you.
+
+Create your Personal Access Token. Complete the following tasks:
+
+1 Click on the tiny round icon in the upper right corner
+2 Click Settings on the dropdown
+3 Click Developer settings on the bottom of the left menu
+4 Click Personal access tokens
+5 Click Tokens (classic)
+6 Click Generate new token
+7 Click Generate new token (classic)
+8 Title the key to "tmux access to github"
+9 Set the expiration to 7 days
+10 Check the box for repo
+11 Check the box for admin:public_key
+12 Click the green Generate token button at the bottom
+13 AT THE TOP OF THE PAGE, COPY THE NEWLY GENERATED TOKEN TO YOUR CLIPBOARD
+
+Section 2 - Back on TMUX, connect to your new githib account
+Save your TOKEN. Replace XXXXXXXXX with the token you just copied from GITHUB.
+
+student@bchd:~$ export TOKEN=XXXXXXXXX
+
+Save your USERNAME. Replace XXXXXXXXX with your GITHUB username.
+
+student@bchd:~$ export USERNAME=XXXXXXXXX
+
+Save your EMAIL. Replace XXXXXXXXX with the EMAIL you used to create your github account.
+
+student@bchd:~$ export EMAIL=XXXXXXXXX
+
+Download the following bash script.
+
+student@bchd:~$ wget https://labs.alta3.com/courses/github/scripts/git-connect.sh
+
+Run the script.
+
+student@bchd:~$ bash ~/git-connect.sh
+
+Section 3 - Saving Your Work
+The following steps are ones you should memorize. You'll be issuing these commands all the time. First issue git status, which will reveal if you added something and forgot about it. First move into your git directory you just made.
+
+student@bchd:~$ cd ~/mycode
+
+Now issue git status, which will list all changes you've made since you last backed up your files to GitHub.
+
+student@bchd:~/mycode$ git status
+
+Next we'll describe what we want to add to our repo. We'll wildcard this, so everything in the ~/mycode/ directory is added.
+
+student@bchd:~/mycode$ git add *
+
+Time to perform a commit. This makes a new version.
+
+student@bchd:~/mycode$ git commit -m "First commit to learn about version controlling"
+
+Now push your new version to GitHub for tracking. By default, the keyword origin points to the repo you cloned the repo from.
+
+student@bchd:~/mycode$ git push origin HEAD
+
+You should get in the habit of issuing the following commands each time you have a success, or end for the day:
+
+git status
+git add /home/student/mycode/*
+git commit -m "reason for commit"
+git push origin HEAD
+Great! Move back to your home directory.
+
+student@bchd:~/mycode$ cd /home/student
