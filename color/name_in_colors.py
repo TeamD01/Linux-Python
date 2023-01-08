@@ -16,7 +16,7 @@ def main():
     print(crayons.red(name))
 
     # print Name in magenta
-    print(crayons.magenta(name, bold=True))
+    print(crayons.blue(name, bold=True))
 
 if __name__ == "__main__":
     main()
