@@ -47,7 +47,11 @@ rooms = {
                 },
             'Secret Room' :{
                 'south' : 'Bedroom',
+                'north' : 'Mall',
                 'item' : 'credit card zach feeser'
+                },
+            'Mall' :{
+                'south' : 'Secret Room'
                 },
             'Kitchen' : {
                   'north' : 'Hall',
@@ -64,7 +68,7 @@ rooms = {
          }
 # start the player in the Hall
 currentRoom = 'Hall'
-
+count = 0
 showInstructions()
 
 # breaking this while loop means the game is over
@@ -82,16 +86,21 @@ while True:
     # therefore, "get golden key" becomes ["get", "golden key"]          
     move = move.lower().split(" ", 1)
 
+    #teleport
+    if move[0] == 'teleport':
+        currentRoom = move[1].title()
+
     #if they type 'go' first
     if move[0] == 'go':
         #check that they are allowed wherever they want to go
         if move[1] in rooms[currentRoom]:
             #set the current room to the new room
             currentRoom = rooms[currentRoom][move[1]]
+            count+=1
         # if they aren't allowed to go that way:
         else:
             print('You can\'t go that way!')
-
+        print("Number of moves is: " + str(count))
     #if they type 'get' first
     if move[0] == 'get' :
         # make two checks:
@@ -119,3 +128,7 @@ while True:
         print('You escaped the house with the ultra rare key and magic potion... YOU WIN!')
         break
 
+    ## Alternate ending
+    if currentRoom == 'Mall' and 'credit card zach feeser' in inventory:
+        print("You excaped to the Mall with Zach's credit card... SHOPPING!!!")
+        break
