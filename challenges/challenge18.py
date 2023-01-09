@@ -11,22 +11,18 @@ Objective: Write a script that contains the following:
     3) A print statement that reads:
 
         Hello, <name>! Happy <day of the week>!
+    No cheating... print has to use both inputs, and no "hard coding in" your name and the day 
+    in your print function
 
-No cheating... print has to use both inputs, and no "hard coding in" your name and the day in 
-    your print function :)
-
-
-BONUS POINTS: no white space weirdness in your output!
+    BONUS POINTS: no white space weirdness in your output!
 
     So nothing like this:
 
         Hello,Chad!   Happy   monday !
 '''
 def main():
-    
     user_name = input("What is your name: ")
     day_of_week = input("What day is it? i.e. Tuesday: ")
-
     print("Hello, " + user_name + "! Happy " + day_of_week + "!")
 
 if __name__ == "__main__":
