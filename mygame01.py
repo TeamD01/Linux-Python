@@ -42,9 +42,13 @@ rooms = {
                 },
             'Bedroom' : {
                 'east' : 'Hall',
+                'north' : 'Secret Room',
                 'item' : 'null pointer'
                 },
-
+            'Secret Room' :{
+                'south' : 'Bedroom',
+                'item' : 'credit card zach feeser'
+                },
             'Kitchen' : {
                   'north' : 'Hall',
                   'item'  : 'monster',
