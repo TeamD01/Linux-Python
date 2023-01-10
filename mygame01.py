@@ -13,6 +13,8 @@ def showInstructions():
     Commands:
       go [direction]
       get [item]
+      teleport [room]
+      quit
     ''')
 
 def showStatus():
@@ -38,7 +40,10 @@ rooms = {
                   'south' : 'Kitchen',
                   'east'  : 'Dining Room',
                   'west'  : 'Bedroom',
+                  'north' : '/dev/null TRAP',
                   'item'  : 'key'
+                },
+            '/dev/null TRAP' :{
                 },
             'Bedroom' : {
                 'east' : 'Hall',
