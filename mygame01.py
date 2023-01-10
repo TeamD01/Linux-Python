@@ -86,6 +86,12 @@ while True:
     # therefore, "get golden key" becomes ["get", "golden key"]          
     move = move.lower().split(" ", 1)
 
+    # quit
+    if move[0] == 'quit':
+        print("You are now sitting in a chair, staring at a computer monitor, wondering what did AMAZON JUST DO!?")
+        break
+
+
     #teleport
     if move[0] == 'teleport':
         currentRoom = move[1].title()
