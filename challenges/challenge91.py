@@ -11,7 +11,7 @@ def main():
     print(f"{pokeapi['name']} image- {pokeapi['sprites']['front_default']}")
     imgurl= pokeapi['sprites']['front_default']
 
-    wget.download(imgurl, "/home/student/static/")
+    wget.download(imgurl, "/home/student/mycode/challenges")
     
     for x in pokeapi['moves']:
         print(' >', x['move']['name'])
