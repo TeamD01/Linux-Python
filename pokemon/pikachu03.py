@@ -45,6 +45,7 @@ def main():
     print(f"List of Pokemon items containing '{args.searchword}': ")
     print(matchedwords)
 
+    #CODE CUSTOMIZATION 01 export all pokrmon to pliaintext, JSON, and Excell
     ## export to excel with pandas
     # make a dataframe from our data
     itemsdf = pandas.DataFrame(matchedwords)
@@ -54,6 +55,8 @@ def main():
     # index=False prevents the index from our dataframe from
     # being written into the data
     itemsdf.to_excel("pokemonitems.xlsx", index=False)
+    itemsdf.to_json("pokemonitems.json")
+    itemsdf.to_csv("pokemonitems.csv")
 
     print("Gotta catch 'em all!")
 
